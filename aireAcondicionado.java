@@ -19,7 +19,7 @@ public class AireAcondicionado {
         if (temperatura == max) {
             temperatura = max; 
         }
-        temperatura = temperatura + 5;
+        temperatura = temperatura + incremento;
     }
     
     /**
@@ -29,7 +29,7 @@ public class AireAcondicionado {
         if (temperatura == min) {
             temperatura = min; 
         }
-        temperatura = temperatura - 5;
+        temperatura = temperatura - incremento;
     }
     
     /**
