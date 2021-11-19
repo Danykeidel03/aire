@@ -5,12 +5,16 @@ public class AireAcondicionado {
     double min;
     double incremento;
     int cambio;
-        public AireAcondicionado(double newMax, double newMin) {
+    double maximo;
+    double minimo;
+    public AireAcondicionado(double newMax, double newMin) {
         temperatura = 15;
         incremento = 5.0;
         max = newMax;
         min = newMin;
         cambio = 0;
+        maximo = temperatura;
+        minimo = temperatura;
     }
 
     /**
@@ -20,6 +24,7 @@ public class AireAcondicionado {
         if ((temperatura + incremento)<= max) {
             temperatura = temperatura + incremento;
             cambio = cambio + 1;
+            maximo = maximo + incremento;
         }
     }
 
@@ -30,6 +35,7 @@ public class AireAcondicionado {
         if ((temperatura - incremento)>= min) {
             temperatura = temperatura - incremento;
             cambio = cambio + 1;
+            minimo = minimo - incremento;
         }
     }
 
@@ -46,20 +52,20 @@ public class AireAcondicionado {
     public double getTemperatura() {
         return temperatura;
     }
-    
+
     /**
      * estadisticas
      */
     public void mostrarEstadisticas() {
-        System.out.println("Temperatura actual:" + temperatura + "º" + "-" + "Temperatura maxima posible:" + max + "º" + "-" + "Temperatura minima posible:" + min + "º" + "-" + "temperatura maxima seleccionada:" + (temperatura + max) + "º" + "-" + "temperatura minima seleccionada:" + (temperatura - min) + "º" + "-" + "Cambios realizados:" + cambio  );
-        
+        System.out.println("Temperatura actual:" + temperatura + "º" + "-" + "Temperatura maxima posible:" + max + "º" + "-" + "Temperatura minima posible:" + min + "º" + "-" + "temperatura maxima seleccionada:" + maximo + "º" + "-" + "temperatura minima seleccionada:" + minimo + "º" + "-" + "Cambios realizados:" + cambio);
+
     }
-    
+
     /**
      * Devuelve las estadisticas
      */
     public String getEstadisticas() {
-        String estadisticas = "Temperatura actual:" + temperatura + "º" + "-" + "Temperatura maxima posible:" + max + "º" + "-" + "Temperatura minima posible:" + min + "º" + "-" + "temperatura maxima seleccionada:" + (temperatura + max) + "º" + "-" + "temperatura minima seleccionada:" + (temperatura - min) + "º" + "-" + "Cambios realizados:" + cambio; 
+        String estadisticas = "Temperatura actual:" + temperatura + "º" + "-" + "Temperatura maxima posible:" + max + "º" + "-" + "Temperatura minima posible:" + min + "º" + "-" + "temperatura maxima seleccionada:" + maximo + "º" + "-" + "temperatura minima seleccionada:" + minimo + "º" + "-" + "Cambios realizados:" + cambio; 
         return estadisticas;
     }
 
