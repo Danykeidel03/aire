@@ -4,20 +4,22 @@ public class AireAcondicionado {
     double max;
     double min;
     double incremento;
-
-    public AireAcondicionado(double newMax, double newMin) {
+    int cambio;
+        public AireAcondicionado(double newMax, double newMin) {
         temperatura = 15;
         incremento = 5.0;
         max = newMax;
         min = newMin;
+        cambio = 0;
     }
 
     /**
      * subir temperatura
      */
     public void subirTemperatura() {
-        if ((temperatura + incremento)< max) {
+        if ((temperatura + incremento)<= max) {
             temperatura = temperatura + incremento;
+            cambio = cambio + 1;
         }
     }
 
@@ -25,8 +27,9 @@ public class AireAcondicionado {
      * bajar temperatura
      */
     public void bajarTemperatura() {
-        if ((temperatura - incremento)> min) {
+        if ((temperatura - incremento)>= min) {
             temperatura = temperatura - incremento;
+            cambio = cambio + 1;
         }
     }
 
@@ -43,4 +46,21 @@ public class AireAcondicionado {
     public double getTemperatura() {
         return temperatura;
     }
+    
+    /**
+     * estadisticas
+     */
+    public void mostrarEstadisticas() {
+        System.out.println("Temperatura actual:" + temperatura + "º" + "-" + "Temperatura maxima posible:" + max + "º" + "-" + "Temperatura minima posible:" + min + "º" + "-" + "temperatura maxima seleccionada:" + (temperatura + max) + "º" + "-" + "temperatura minima seleccionada:" + (temperatura - min) + "º" + "-" + "Cambios realizados:" + cambio  );
+        
+    }
+    
+    /**
+     * Devuelve las estadisticas
+     */
+    public String getEstadisticas() {
+        String estadisticas = "Temperatura actual:" + temperatura + "º" + "-" + "Temperatura maxima posible:" + max + "º" + "-" + "Temperatura minima posible:" + min + "º" + "-" + "temperatura maxima seleccionada:" + (temperatura + max) + "º" + "-" + "temperatura minima seleccionada:" + (temperatura - min) + "º" + "-" + "Cambios realizados:" + cambio; 
+        return estadisticas;
+    }
+
 } 
