@@ -24,7 +24,9 @@ public class AireAcondicionado {
         if ((temperatura + incremento)<= max) {
             temperatura = temperatura + incremento;
             cambio = cambio + 1;
-            maximo = maximo + incremento;
+            if (temperatura > maximo){
+                maximo = maximo + incremento;
+            }
         }
     }
 
@@ -35,7 +37,9 @@ public class AireAcondicionado {
         if ((temperatura - incremento)>= min) {
             temperatura = temperatura - incremento;
             cambio = cambio + 1;
-            minimo = minimo - incremento;
+            if (temperatura < minimo){
+                minimo = minimo - incremento;
+            }
         }
     }
 
